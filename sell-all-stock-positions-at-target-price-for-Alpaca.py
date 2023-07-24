@@ -15,8 +15,7 @@ def introduction():
     print("Welcome to the Stock Selling Program that sells your Alpaca Stock Shares. ")
     print("This program will sell all shares of a specific stock symbol at a specified price. ")
     print("You will set a target price, and the program will monitor the price to sell when it decreases by 1 penny. ")
-    print("If the price increases above the target by 1 penny, a new stop loss flag will be triggered. ")
-    print("This allows the price to increase to its maximum and then sell immediately if it drops by 1 penny. ")
+    print("This allows the price to increase to its target and then sell immediately if it drops by 1 penny. ")
     print("--------------------")
 
 def stop_if_stock_market_is_closed():
@@ -112,9 +111,6 @@ def main():
     # Sell the stock based on the specified target price and stop loss conditions
     sell_stock(symbol, target_price)
 
-    # Sleep for 10 minutes after selling the stock
-#    print("Sleeping for 10 minutes before exiting the program.")
-#    time.sleep(600)  # Sleep for 10 minutes
 
 if __name__ == "__main__":
     main()
