@@ -50,63 +50,46 @@ def stop_if_stock_market_is_closed():
 
 def sell_stock(symbol, target_price):
     while True:
-        pass
         # Get current positions
         positions = api.list_positions()
+        owned_positions = [position for position in positions if position.symbol == symbol]
 
         # Check if we own any positions for the given symbol
-        owned_positions = [position for position in positions if position.symbol == symbol]
         if not owned_positions:
             print(f"You don't own any shares of {symbol}. Exiting the program.")
             return
 
-        # Calculate the total quantity of shares for the given symbol
+        # Calculate the total quantity of shares and average price for the given symbol
         total_qty = sum([float(position.qty) for position in owned_positions])
+        current_price = sum([float(position.current_price) for position in owned_positions]) / len(owned_positions)
 
-        # Get the current stock price
-        current_price = float(owned_positions[0].current_price)
+        # Print the current date and time in Eastern Time
+        eastern = pytz.timezone('US/Eastern')
+        now = datetime.now(eastern)
+        print(f'Current date & time (Eastern Time): {now.strftime("%A, %B %d, %Y, %H:%M:%S")} ')
+        print(f"Symbol: {symbol}, Current Stock Market Price: ${current_price:.2f}")
+        print("--------------------")
+        print(f"Stock Symbol to Sell: {symbol}")
+        print(f"Target Sell Price: ${target_price:.2f}\n")
 
-        # Check if the target price is reached
+        # Check if the target price is reached or exceeded
         if current_price >= target_price:
             print(f"Target price of ${target_price:.2f} reached for {symbol}.")
-            print("Activating stop loss function.")
-            time.sleep(1)
+            print(f"Selling all {total_qty} shares of {symbol} at an average price of ${current_price:.2f}.")
+            if total_qty > 0:
+                api.submit_order(
+                    symbol=symbol,
+                    qty=total_qty,
+                    side="sell",
+                    type="market",
+                    time_in_force="day"  # Set the order type to "day"
+                )
+                print("All shares sold successfully.")
+            break
 
-            # Monitor the price and sell at the first decrease of 1 penny
-            while True:
-                # Get current positions
-                positions = api.list_positions()
-                owned_positions = [position for position in positions if position.symbol == symbol]
-
-                # Check if we don't own any positions for the given symbol (sold by stop loss)
-                if not owned_positions:
-                    print(f"All shares of {symbol} sold successfully.")
-                    break
-
-                # Calculate the total quantity of shares for the given symbol
-                total_qty = sum([float(position.qty) for position in owned_positions])
-                current_price = float(owned_positions[0].current_price)
-
-                # Check if the price decreases by 1 penny after reaching the target
-                if current_price <= target_price - 0.01:
-                    print(f"Selling all shares of {symbol} at ${current_price:.2f}.")
-                    if total_qty > 0:
-                        api.submit_order(
-                            symbol=symbol,
-                            qty=total_qty,
-                            side="sell",
-                            type="market",
-                            time_in_force="day"  # Set the order type to "day"
-                        )
-                        print("All shares sold successfully.")
-                    break
-
-                # Check if the price continues to increase above the target
-                if current_price >= target_price + 0.01:
-                    print("Price continues to increase. Activating new stop loss flag.")
-                    break
-
-                time.sleep(1)
+        # Wait for 1 second before checking the price again
+        time.sleep(1)
+            
         # Print current date and time in Eastern Time
         eastern = pytz.timezone('US/Eastern')
         now = datetime.now(eastern)
