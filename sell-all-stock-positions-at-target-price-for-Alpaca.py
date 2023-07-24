@@ -89,17 +89,6 @@ def sell_stock(symbol, target_price):
 
         # Wait for 1 second before checking the price again
         time.sleep(1)
-            
-        # Print current date and time in Eastern Time
-        eastern = pytz.timezone('US/Eastern')
-        now = datetime.now(eastern)
-        print(f'Current date & time (Eastern Time): {now.strftime("%A, %B %d, %Y, %H:%M:%S")} ')
-        print(f"Symbol: {symbol}, Current Stock Market Price: ${current_price:.2f}")
-        print("--------------------")
-        print(f"Stock Symbol to Sell: {symbol}")
-        print(f"Target Sell Price: ${target_price:.2f}\n")
-        # Wait for 1 second before checking the price again
-        time.sleep(1)
 
 
 def main():
