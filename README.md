@@ -1,4 +1,8 @@
-  Are you an Alpaca stock trader looking for a convenient and efficient way to sell all your stock positions at a specific target price? Look no further! Introducing the Alpaca Stock Selling Program - your ultimate stock selling solution!
+  Are you an Alpaca stock trader looking for a convenient and efficient way to sell all your stock positions at a specific target price? Look no further! Introducing the Alpaca Stock Selling Program - your ultimate stock selling solution! 
+  
+  IMPORTANT MESSAGE: This only sells at your target price when the price is increasing. 
+  This is not designed to sell when the price is decreasing because of normal price variances throughtout the day. 
+  This is designed to sell your stock when the price is in a "Strong Bull Stock" price increase phase. 
 
   With our easy-to-use Python script, you can now sell all shares of a specific stock symbol at your desired price. Set your target price and let our program do the rest!
 
