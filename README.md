@@ -4,7 +4,7 @@
 
   Here's how you can get started. First, create a text file named "the-stock-symbol-to-sell.txt" and enter the stock symbol you want to sell, for example, "AAPL". 
 
-  Next, create another text file named "sell-stocks-price.txt" and input the target sell price. For instance, if you want to sell your shares at $150, just type "150" in the file.
+  Next, create another text file named "sell-stocks-price.txt" and input the target sell price. For instance, if you want to sell your shares at $150, just type "150.00" in the file.
 
   That's it! Now, all you need to do is run the program with the command: 
    python3 sell-all-stock-positions-at-target-price-for-Alpaca.py  
