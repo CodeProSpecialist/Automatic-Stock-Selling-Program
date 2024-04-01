@@ -1,4 +1,6 @@
   Are you an Alpaca stock trader looking for a convenient and efficient way to sell all your stock positions at a specific target price? Look no further! Introducing the Alpaca Stock Selling Program - your ultimate stock selling solution! 
+
+This python 3 code was tested with python 3.10 in Ubuntu 22.04 LTS Linux.
   
   IMPORTANT MESSAGE: This only sells at your target price when the price is increasing. 
   This is not designed to sell when the price is decreasing because of normal price variances throughtout the day. 
