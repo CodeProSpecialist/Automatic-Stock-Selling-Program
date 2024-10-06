@@ -19,7 +19,7 @@ This python 3 code was tested with python 3.10 in Ubuntu 22.04 LTS Linux.
 
   Plus, we've got you covered during stock market hours. The program will only execute during market hours from 9:30 am to 4:00 pm Eastern Time, ensuring precise and timely trades.
 
-  Wait, there's more! You'll receive real-time updates every second, so you know the program is actively working for you.
+  Wait, there's more! You'll receive real-time updates, so you know the program is actively working for you.
 
 Place your alpaca code keys in the location: /home/name-of-your-home-folder/.bashrc Be careful to not delete the entire .bashrc file. Just add the 4 lines to the bottom of the .bashrc text file in your home folder, then save the file. .bashrc is a hidden folder because it has the dot ( . ) in front of the name. Remember that the " # " pound character will make that line unavailable. To be helpful, I will comment out the real money account for someone to begin with an account that does not risk using real money. The URL with the word "paper" does not use real money. The other URL uses real money. Making changes here requires you to reboot your computer or logout and login to apply the changes.
 
