@@ -14,8 +14,8 @@ api = tradeapi.REST(APIKEYID, APISECRETKEY, APIBASEURL)
 def introduction():
     print("Welcome to the Stock Selling Program that sells your Alpaca Stock Shares. ")
     print("This program will sell all shares of a specific stock symbol at a specified price. ")
-    print("You will set a target price, and the program will monitor the price to sell when it decreases by 1 penny. ")
-    print("This allows the price to increase to its target and then sell immediately if it drops by 1 penny. ")
+    print("You will set a target price, and the program will monitor the price to sell when the target price is reached. ")
+    print("This allows the price to increase to its target and then sell immediately. ")
     print("--------------------")
 
 def stop_if_stock_market_is_closed():
